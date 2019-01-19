@@ -1,0 +1,10 @@
+.no-underline>tr>td>a:hover{
+      text-decoration: none;
+    }
+    #line-through{
+      text-decoration: line-through;
+    }
+    .table-responsive{
+        padding-left: 60px;
+        padding-right: 60px;
+    }

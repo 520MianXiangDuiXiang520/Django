@@ -1,0 +1,62 @@
+{% load static %}
+
+<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>{% block 标题 %}未命名网页{% endblock 标题 %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-top.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'todolist/css/base.css'%}">
+    <link rel="stylesheet" href="{% block css %}{% endblock css %}">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% block 主页高亮 %}{% endblock 主页高亮 %}">
+            <a class="nav-link" href="{% url 'todolist:主页'%}">待办清单</a>
+          </li>
+             <li class="nav-item {% block 关于高亮 %}{% endblock 关于高亮 %}">
+            <a class="nav-link" href="{% url 'todolist:关于'%}">关于本站</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0" id="addbuttom" method="post" action="" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input name="待办" class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">添加</button>
+        </form>
+      </div>
+    </nav>
+    <main>
+        {% block 主题 %}
+        {% endblock 主题 %}
+    </main>
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

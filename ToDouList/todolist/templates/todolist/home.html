@@ -1,0 +1,117 @@
+{% extends "todolist/base.html"%}
+{% load static %}
+{% block css %}{% static 'todolist/css/home.css'%}{% endblock css %}
+{% block 标题 %}待办清单{% endblock 标题 %}
+{% block 主页高亮 %}active{% endblock 主页高亮 %}
+{% block 主题 %}
+
+<!-- =========================================================== -->
+{% if 警告 %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong><center>{{警告}}</center></strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+{% if 成功提示 %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong><center>{{成功提示}}</center></strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+<br>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>序号</th>
+        <th>待办事项</th>
+          <th>编辑</th>
+        <th>划掉</th>
+        <th>删除</th>
+      </tr>
+    </thead>
+    <tbody class="no-underline">
+    {% for everything in 清单 %}
+    {% if everything.完成情况 %}
+    <tr class="table-dark">
+        <th class="text-dark" scope="row">{{forloop.counter}}</th>
+        <td class="text-dark" id="line-through">{{everything.事件名称}}</td>
+        <td> <a class="text-secondary" href="#">不可编辑</a></td>
+        <td ><a class="text-info" href="{% url 'todolist:撤销' forloop.counter %}">撤销</a></td>
+        <td>
+          <form method="post" action="{% url 'todolist:删除' forloop.counter %}">
+             {% csrf_token %}
+            <button  type="submit" class="btn btn-danger btn-sm">删除</button>
+          </form>
+        </td>
+      </tr>
+
+    {% else %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{everything.事件名称}}</td>
+        <td class="text-success"><a href="{% url 'todolist:编辑' forloop.counter %}">编辑</a></td>
+        <td class="text-primary" ><a href="{% url 'todolist:划掉' forloop.counter %}">划掉</a></td>
+        <td>
+          <!--<from method="POST" action="{% url 'todolist:删除' forloop.counter %}">-->
+          <form method="post" action="{% url 'todolist:删除' forloop.counter %}">
+             {% csrf_token %}
+            <button  type="button" class="btn btn-primary btn-sm"data-toggle="modal" data-target="#exampleModal">删除</button>
+          <!-- Button trigger modal -->
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">该事件未完成，您确定要删除吗</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-primary">删除</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          <!--</from>-->
+        </td>
+      </tr>
+    {% endif %}
+    {% endfor %}
+      <!--
+      <tr>
+        <th scope="row">2</th>
+        <td>看一会小说</td>
+          <td class="text-success"><a href="/todo/edit/">编辑</a></td>
+        <td class="text-primary" ><a href="#">划掉</a></td>
+        <td><a class="text-warning" href="#">删除</a></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>散散步</td>
+          <td class="text-success"><a href="/todo/edit/">编辑</a></td>
+        <td class="text-primary" ><a href="#">划掉</a></td>
+        <td><a class="text-warning" href="#">删除</a></td>
+      </tr>
+      <tr class="table-dark">
+        <th class="text-dark" scope="row">4</th>
+        <td class="text-dark" id="line-through">去超市</td>
+          <td> <a class="text-secondary" href="#">不可编辑</a></td>
+        <td ><a class="text-info" href="#">撤销</a></td>
+        <td><a class="text-danger" href="#">删除</a></td>
+      </tr>
+      -->
+    </tbody>
+  </table>
+</div>
+{% endblock 主题 %}
