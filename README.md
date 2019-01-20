@@ -121,3 +121,4 @@ django推荐的存放html页面的文件夹，同样为了避免重名，在内�
 <br />
 **总结：** 模板继承其实就是把子页中的`{% block 导航栏 %}{% endblock 主题 %}`之间的内容放在模板`{% block 导航栏 %}{% endblock 导航栏 %}`之间
 
+hahhahahahahahahhah
