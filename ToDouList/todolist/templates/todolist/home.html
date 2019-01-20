@@ -36,14 +36,15 @@
     </thead>
     <tbody class="no-underline">
     {% for everything in 清单 %}
-    {% if everything.完成情况 %}
+    {% if everything.done %}
+    <!--forloop.counter-->
     <tr class="table-dark">
         <th class="text-dark" scope="row">{{forloop.counter}}</th>
-        <td class="text-dark" id="line-through">{{everything.事件名称}}</td>
+        <td class="text-dark" id="line-through">{{everything.thing}}</td>
         <td> <a class="text-secondary" href="#">不可编辑</a></td>
-        <td ><a class="text-info" href="{% url 'todolist:撤销' forloop.counter %}">撤销</a></td>
+        <td ><a class="text-info" href="{% url 'todolist:撤销' everything.id %}">撤销</a></td>
         <td>
-          <form method="post" action="{% url 'todolist:删除' forloop.counter %}">
+          <form method="post" action="{% url 'todolist:删除' everything.id %}">
              {% csrf_token %}
             <button  type="submit" class="btn btn-danger btn-sm">删除</button>
           </form>
@@ -53,21 +54,21 @@
     {% else %}
       <tr>
         <th scope="row">{{forloop.counter}}</th>
-        <td>{{everything.事件名称}}</td>
-        <td class="text-success"><a href="{% url 'todolist:编辑' forloop.counter %}">编辑</a></td>
-        <td class="text-primary" ><a href="{% url 'todolist:划掉' forloop.counter %}">划掉</a></td>
+        <td>{{everything.thing}}</td>
+        <td class="text-success"><a href="{% url 'todolist:编辑' everything.id %}">编辑</a></td>
+        <td class="text-primary" ><a href="{% url 'todolist:划掉' everything.id %}">划掉</a></td>
         <td>
           <!--<from method="POST" action="{% url 'todolist:删除' forloop.counter %}">-->
-          <form method="post" action="{% url 'todolist:删除' forloop.counter %}">
+          <form method="post" action="{% url 'todolist:删除' everything.id %}">
              {% csrf_token %}
-            <button  type="button" class="btn btn-primary btn-sm"data-toggle="modal" data-target="#exampleModal">删除</button>
+            <button  type="button" class="btn btn-primary btn-sm"data-toggle="modal" data-target="#exampleModal{{everything.id}}">删除</button>
           <!-- Button trigger modal -->
               <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="exampleModal{{everything.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal{{everything.id}}Label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">该事件未完成，您确定要删除吗</h5>
+                      <h5 class="modal-title" id="exampleModal{{everything.id}}Label">该事件未完成，您确定要删除吗</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -88,29 +89,7 @@
       </tr>
     {% endif %}
     {% endfor %}
-      <!--
-      <tr>
-        <th scope="row">2</th>
-        <td>看一会小说</td>
-          <td class="text-success"><a href="/todo/edit/">编辑</a></td>
-        <td class="text-primary" ><a href="#">划掉</a></td>
-        <td><a class="text-warning" href="#">删除</a></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>散散步</td>
-          <td class="text-success"><a href="/todo/edit/">编辑</a></td>
-        <td class="text-primary" ><a href="#">划掉</a></td>
-        <td><a class="text-warning" href="#">删除</a></td>
-      </tr>
-      <tr class="table-dark">
-        <th class="text-dark" scope="row">4</th>
-        <td class="text-dark" id="line-through">去超市</td>
-          <td> <a class="text-secondary" href="#">不可编辑</a></td>
-        <td ><a class="text-info" href="#">撤销</a></td>
-        <td><a class="text-danger" href="#">删除</a></td>
-      </tr>
-      -->
+
     </tbody>
   </table>
 </div>
