@@ -1,0 +1,23 @@
+{% extends "music/base.html"%}
+
+{% block 标题 %}华语歌手{% endblock %}
+
+{% block 主页高亮 %}navbar-brand{% endblock %}
+{#{% block 华语歌手 %}#}
+{#华语男歌手#}
+{#{% endblock %}#}
+{#{% block 欧美歌手 %}#}
+{#华语女歌手#}
+{#{% endblock %}#}
+{#{% block 日本歌手 %}#}
+{#华语乐队组合#}
+{#{% endblock %}#}
+{% block 主题 %}
+    {% for info in a %}
+        <a href="{% url 'music:下载' info.歌手ID %}">{{ info.歌手ID }}---{{ info.歌手姓名 }}</a>
+
+        <br>
+    {% endfor %}
+
+
+{% endblock 主题 %}

@@ -1,0 +1,12 @@
+{% extends "music/base.html"%}
+{% load static %}
+{% block 标题 %}主页{% endblock %}
+
+{% block 主页高亮 %}navbar-brand{% endblock %}
+
+{% block 主题 %}
+    {% for id in ID %}
+        {{ id }}
+    {% endfor %}
+
+{% endblock 主题 %}
