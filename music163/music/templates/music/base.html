@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template -->
     <link href="navbar-top.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% block css %}{% endblock css %}">
 
   </head>
   <body>
@@ -54,9 +55,11 @@
         <a class="{% block 关于高亮 %}nav-link disabled{% endblock 关于高亮 %}" href="{% url 'music:关于'%}" tabindex="-1" aria-disabled="true">关于我</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" method="post" name="updata" action="{% url 'music:更新数据库'%}">
+    <form class="form-inline my-2 my-lg-0" method="post" name="updata" action="{% block 按钮url %}{% url 'music:更新数据库'%}{% endblock 按钮url %}">
         {% csrf_token %}
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">更新数据库</button>
+        {% block 隐藏域 %}{% endblock 隐藏域 %}
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% block 按钮 %}更新数据库{% endblock 按钮 %}</button>
     </form>
   </div>
 </nav>

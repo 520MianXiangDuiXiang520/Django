@@ -2,8 +2,9 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 from .models import 华语男歌手,欧美男歌手,日本男歌手,韩国男歌手,其他男歌手,华语女歌手,欧美女歌手,日本女歌手,韩国女歌手,其他女歌手,华语组合,欧美组合,日本组合,韩国组合,其他歌手组合
-
+from urllib.request import urlretrieve
 import re
+from lxml.html import fromstring,tostring
 
 artists = []
 id = []
@@ -137,23 +138,162 @@ def update(request):
     connect={'ID':id,'NAME':artists}
     return render(request, "music/home.html", connect)
 
+def song(url):
+    id_list = []
+    name_list=[]
+    headers = {'Host': 'music.163.com',
+               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+               'Accept-Encoding': 'gzip, deflate',
+               'Accept-Language': 'zh-CN,zh;q=0.9',
+               'Connection': 'keep-alive',
+               'Content - Type': 'application / x - www - form - urlencoded',
+               'Content - Length': '340',
+               'Cache - Control': 'max - age = 0',
+               'Cookie': 'JSESSIONID-WYYY=dCYq9jVg67nSVCCTjqH5tYIQv2IdFZze425qd6DYKM7ZGny0wiM%2Ber3cIksIp6RU6Et9PfoqY4ynxubWRUAJ6v%2B8odx%2F7GYEGG%5Cbpq0v%2FqrY7yokmngDiInZBPDz1d7bZxjkZW8aiMC5jj%5Cgig7TJ4p%2BTzTqlugDJMxChHxeK%2ByZqy%5CK%3A1549352253864; _iuqxldmzr_=32; _ntes_nnid=7fff421235022c5dfe3cba199f702822,1549350453885; _ntes_nuid=7fff421235022c5dfe3cba199f702822; WM_NI=7n2V78OQ%2BkhVDHhadVHANe8nXD7BT1Q1ZNahjJVh7hZVXhd3%2F4Mo4qP%2Bgo1Az9ZQrkkY4%2FkAz1wYPyuytAySNmgVn3okb%2FHE%2Fb%2BZOC1Cj%2Bx3cFFX5MpsLFw0Pp2OXtNhVm8%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6eed6e53eedb297bbe63ef1968ba3c44e879f9baaf37d8bf5ff86f77ef1ba8490c82af0fea7c3b92af5b2feb7b6348d8fe58ceb5e8898a882e75e8c9f8286bb669c9cf9a3d73b93ef96afe464aa969a89b6649a8a9889e739edec8390b77b94f5a990b44bbae796b2f161a987fcd0ea4bbaefb9bad373b7a7bca2fc598eb3a9b7ed39adb5aed0cb4fedbee5bbce49f39da6ccfb39a19a8ab9b847b4ad84a7f63c94b0feb0db808eb89a8ebb37e2a3; WM_TID=e4GH8XbWYNpBRQAEEQJshJuwL8vzeetE',
+               'Referer': 'http://music.163.com/',
+               'Upgrade-Insecure-Requests': '1',
+               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0'}
+    r=requests.get(url,headers=headers)
+    text=r.text
+    #print(text)
+    soup = BeautifulSoup(text, 'html.parser')
+    s=soup.find_all('ul', attrs={'class': 'f-hide'})
+
+    s=repr(s[0])
+    tree=fromstring(s)
+    s=tostring(tree,pretty_print=True)
+    soup=BeautifulSoup(s,'html.parser')
+    s=soup.find_all('a')
+    #print(s[0])
+    r='[0-9]+.+[\u4e00-\u9fa5]'
+    d='">'
+    n='[0-9]+'
+    nam='[\u4e00-\u9fa5]+'
+    for i in s:
+        try:
+            s=re.findall(r,repr(i))
+            s=re.sub(d,"",repr(s[0]))
+            id=re.findall(n,s)
+            name=re.findall(nam,s)
+            id_list.append(id[0])
+            name_list.append(name[0])
+        except:
+            continue
+    dit = dict.fromkeys(id_list, "1")
+    for a in range(len(id_list)):
+        dit[id_list[a]]=name_list[a]
+    return dit
+
+def down(dit,get_path):
+    for id in dit.keys():
+        downloadurl='http://music.163.com/song/media/outer/url?id='+id
+        path=get_path+'\%s.mp3'%dit[id]
+        try:
+            print("正在下载%s"%dit[id])
+            urlretrieve(downloadurl,path)
+            print("下载完成。。。")
+        except:
+            continue
+
 def chboy(request):
     name=华语男歌手.objects.all()
     connect={'a':name}
     return render(request, "music/ch.html",connect)
 
+def chgir(request):
+    name=华语女歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html", connect)
+
+def chzh(request):
+    name=华语组合.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html", connect)
+
 def usboy(request):
-    return render(request, "music/ch.html")
+    name = 欧美男歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
+
+def usgir(request):
+    name = 欧美女歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
+
+def uszh(request):
+    name = 欧美组合.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
 
 def jpboy(request):
-    return render(request, "music/ch.html")
+    name = 日本男歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
+
+def jpgir(request):
+    name = 日本女歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
+
+def jpzh(request):
+    name = 日本组合.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
 
 def smdboy(request):
-    return render(request, "music/ch.html")
+    name = 韩国男歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
+
+def smdgir(request):
+    name = 韩国女歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
+
+def smdzh(request):
+    name = 韩国组合.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html",connect)
 
 def qtboy(request):
-    return render(request, "music/ch.html")
+    name = 其他男歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html", connect)
 
-def download(request,info_歌手ID):
-    connect={'id':info_歌手ID}
-    return render(request, "music/download.html",connect)
+def qtgir(request):
+    name = 其他女歌手.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html", connect)
+
+def qtzh(request):
+    name = 其他歌手组合.objects.all()
+    connect = {'a': name}
+    return render(request, "music/ch.html", connect)
+
+def songs(request,info_歌手ID):
+    url = 'https://music.163.com/artist?id=' + info_歌手ID
+    dit = song(url)
+
+    #down(dit)
+    info=dit.items()
+    connect={'a':info,'ID':info_歌手ID}
+
+    return render(request, "music/song.html", connect)
+
+def alldownl(request):
+    # 需要得到歌曲id列表
+
+    if request.method == "POST":
+        h = request.POST['下载']
+        url = 'https://music.163.com/artist?id=' + h
+        dit = song(url)
+        info = dit.items()
+        path=request.POST['下载路径']
+        if path=='':
+            connect={'a':info,'警告':'未输入路径'}
+        else:
+            down(dit, path)
+            connect={'a':info,'成功提示':'开始下载'}
+        return render(request, "music/song.html", connect)
+    else:
+        return render(request, "music/song.html")
