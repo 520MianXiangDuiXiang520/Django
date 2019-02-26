@@ -1,4 +1,4 @@
-"""music163 URL Configuration
+"""auth URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-import music.urls
+import myauth.urls
 
 urlpatterns = [
-path('admin/', admin.site.urls),
-    path('music163/', include(music.urls)),
+    path('admin/', admin.site.urls),
+path('auth/', include(myauth.urls)),
 ]
