@@ -1,32 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>注册</title>
 </head>
 <body>
+{% if 表单.errors.username %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>警告：</strong> 用户名已存在！！！
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% elif 表单.errors.password1 %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>警告：</strong> {{表单.errors.password1}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-{% if 表单.errors %}
-{{表单.errors}}
-{% endif %}
+        {% elif 表单.errors.password2 %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>警告：</strong> {{表单.errors.password2}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        {% elif 表单.errors.email %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>警告：</strong> {{表单.errors.email}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        {% elif 表单.errors.email %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>警告：</strong> {{表单.errors.生日}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        {% elif 表单.errors.email %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>警告：</strong> {{表单.errors.昵称}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <br>
+        {% endif %}
+        <br/>
+        <br/>
+
     <form action="" method="post" name="zhuce" >
        {% csrf_token %}
-        <p>
-            <label for="id_username">用户名:</label>
-            <input type="text" name="username" value="" maxlength="150" autofocus required id="id_username">
-            <span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span>
-        </p>
-        <p>
-            <label for="id_password1">密码:</label>
-            <input type="password" name="password1" required id="id_password1">
-            <span class="helptext"><ul>
-                <li>你的密码不能与其他个人信息太相似。</li>
-                <li>你的密码必须包含至少 8 个字符。</li>
-                <li>你的密码不能是大家都爱用的常见密码。</li>
-                <li>你的密码不能全部为数字。</li>
-            </ul>
-            </span>
-        </p>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">用户名:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" name="username" value="" maxlength="150" autofocus required id="id_username">
+
+        </div>
+        <br>
+        <br/>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping1">密  码</span>
+            </div>
+            <input type="password" class="form-control" name="password1" required id="id_password1" placeholder="password" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+
+
         <p>
             <label for="id_password2">密码确认:</label>
             <input type="password" name="password2" required id="id_password2">
@@ -36,10 +88,12 @@
             <label for="id_email">电子邮件地址:</label>
             <input type="email" name="email" maxlength="254" id="id_email">
         </p>
+
         <p>
             <label for="id_昵称">昵称:</label>
             <input type="text" name="昵称" value="" maxlength="50" id="id_昵称">
         </p>
+
         <ul class="errorlist">
             <li>输入一个有效的日期。</li>
         </ul>
@@ -47,7 +101,18 @@
             <label for="id_生日">生日:</label>
             <input type="date" name="生日" value="" id="id_生日">
         </p>
+        {{表单.验证码}}
+        {{表单.errors.验证码}}
        <button type="submit">提交</button>
    </form>
+    <a href="{% url 'myauth:登录' %}">登录</a>
 </body>
 </html>
+
+
+
+<p><span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span></p>
+<li>你的密码不能与其他个人信息太相似。</li>
+                <li>你的密码必须包含至少 8 个字符。</li>
+                <li>你的密码不能是大家都爱用的常见密码。</li>
+                <li>你的密码不能全部为数字。</li>

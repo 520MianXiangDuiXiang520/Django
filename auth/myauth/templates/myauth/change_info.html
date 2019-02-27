@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改个人信息</title>
+</head>
+<body>
+<h1>修改个人信息</h1>
+<a href="{% url 'myauth:修改密码' %}">修改密码</a>
+    <a href="{% url 'myauth:个人中心' %}">个人中心</a>
+    <a href="{% url 'myauth:登出' %}">退出登录</a>
+<form method="post" action="" name="修改个人信息">
+    {% csrf_token %}
+    <p>
+        <label for="id_username">用户名:</label>
+        <input type="text" name="username" value="{{用户.username}}" maxlength="150" required id="id_username">
+        <span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span></p>
+    <p>
+        <label for="id_email">电子邮件地址:</label>
+        <input type="email" name="email" value="{{用户.email}}" maxlength="254" id="id_email">
+    </p>
+    <p>
+        <label for="id_昵称">昵称:</label>
+        <input type="text" name="昵称" maxlength="50" id="id_昵称" value="{{用户.普通会员表.昵称}}">
+    </p>
+    <p>
+        <label for="id_生日">生日:</label>
+        <input type="date" name="生日" id="id_生日">
+    </p>
+    <button type="submit">确定</button>
+</form>
+</body>
+</html>

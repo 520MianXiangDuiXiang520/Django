@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import redirect,render
 import requests
 from bs4 import BeautifulSoup
 from .models import 华语男歌手,欧美男歌手,日本男歌手,韩国男歌手,其他男歌手,华语女歌手,欧美女歌手,日本女歌手,韩国女歌手,其他女歌手,华语组合,欧美组合,日本组合,韩国组合,其他歌手组合
 from urllib.request import urlretrieve
 import re
 from lxml.html import fromstring,tostring
+from django.contrib.auth import authenticate,login,logout
 
 artists = []
 id = []
@@ -43,48 +44,63 @@ def get_artists(url,flag):
         arts = re.sub(art_r, "", ss[0])
         arts = re.sub(art_r2, "", arts)
         if flag=='华语男歌手':
+
             obj = 华语男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='欧美男歌手':
+
             obj = 欧美男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='日本男歌手':
+
             obj = 日本男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='韩国男歌手':
+
             obj = 韩国男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='其他男歌手':
+            其他男歌手.objects.all().delete()
             obj = 其他男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='华语女歌手':
+
             obj = 华语女歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='欧美女歌手':
+
             obj = 欧美女歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='日本女歌手':
+
             obj = 日本女歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='韩国女歌手':
+
             obj = 韩国女歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='其他女歌手':
+
             obj = 其他女歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='华语组合':
+
             obj = 华语组合(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='欧美组合':
+
             obj = 欧美组合(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='日本组合':
+
             obj = 日本组合(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='韩国组合':
+
             obj = 韩国组合(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='其他组合':
+
             obj = 其他歌手组合(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
 def pachong(flag,geshouid):
@@ -102,7 +118,35 @@ def home(request):
 def about(request):
     return render(request, "music/about.html")
 
+# 单击主页更新，跳转到管理员登录界面
+def fupdate(request):
+    if request.method=='POST':
+        users=authenticate(request,username=request.POST['用户名'],password=request.POST['密码'])
+        if users==None:
+            return render(request, "myauth/auth.html",{'错误':'用户名或密码错误'})
+        else:
+            login(request,users)
+            return  redirect('music:更新')
+    else:
+        return render(request, 'music/auth.html')
+
+
+
 def update(request):
+    韩国男歌手.objects.all().delete()
+    日本男歌手.objects.all().delete()
+    华语女歌手.objects.all().delete()
+    欧美女歌手.objects.all().delete()
+    日本女歌手.objects.all().delete()
+    韩国女歌手.objects.all().delete()
+    其他女歌手.objects.all().delete()
+    华语男歌手.objects.all().delete()
+    欧美男歌手.objects.all().delete()
+    其他歌手组合.objects.all().delete()
+    韩国组合.objects.all().delete()
+    日本组合.objects.all().delete()
+    欧美组合.objects.all().delete()
+    华语组合.objects.all().delete()
     flag='华语男歌手'
     pachong(flag,1001)
     flag='华语女歌手'
@@ -134,9 +178,8 @@ def update(request):
     flag = '其他组合'
     pachong(flag, 4001)
 
-
     connect={'ID':id,'NAME':artists}
-    return render(request, "music/home.html", connect)
+    return render(request, "music/auth.html", connect)
 
 def song(url):
     id_list = []

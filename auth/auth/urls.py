@@ -19,5 +19,6 @@ import myauth.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-path('auth/', include(myauth.urls)),
+    path('auth/', include(myauth.urls)),
+    path('captcha/', include('captcha.urls')),
 ]
