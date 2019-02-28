@@ -103,6 +103,8 @@ def get_artists(url,flag):
 
             obj = 其他歌手组合(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
+
+
 def pachong(flag,geshouid):
     initial = [-1, 0, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88,
                89, 90]
@@ -119,17 +121,17 @@ def about(request):
     return render(request, "music/about.html")
 
 # 单击主页更新，跳转到管理员登录界面
-def fupdate(request):
+def auth(request):
     if request.method=='POST':
-        users=authenticate(request,username=request.POST['用户名'],password=request.POST['密码'])
+        users = authenticate(request, username=request.POST['用户名'], password=request.POST['密码'])
         if users==None:
-            return render(request, "myauth/auth.html",{'错误':'用户名或密码错误'})
-        else:
-            login(request,users)
-            return  redirect('music:更新')
+            flag={'错误':'用户名或密码错误'}
+            return render(request,'music/auth.html',flag)
     else:
         return render(request, 'music/auth.html')
 
+def superuser_page(request):
+    return render(request, 'music/superuser.html')
 
 
 def update(request):
@@ -232,9 +234,7 @@ def down(dit,get_path):
         downloadurl='http://music.163.com/song/media/outer/url?id='+id
         path=get_path+'\%s.mp3'%dit[id]
         try:
-            print("正在下载%s"%dit[id])
             urlretrieve(downloadurl,path)
-            print("下载完成。。。")
         except:
             continue
 

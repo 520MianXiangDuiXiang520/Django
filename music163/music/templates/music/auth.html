@@ -30,25 +30,32 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+      <link href="signin.css" rel="stylesheet">
   </head>
+
   <body class="text-center">
-  <br>
+        <br/><br/><br/><br/>
+    <form class="form-signin" method="post" action="{% url 'music:管理员页面' %}">
+
+        {% csrf_token %}
+
+        <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
+        <label for="inputEmail" class="sr-only">用户名</label>
+        <center>
+            <input type="text" id="inputEmail" class="form-control" placeholder="用户名" required autofocus style="width: 278px;height: 44px" name="用户名">
+        </center>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <center>
+            <input type="password" id="inputPassword" class="form-control" placeholder="密码" required style="width: 278px;height: 44px" name="密码">
+        </center>
+        <br>
+        {{错误}}
         <br/>
-  <br>
-        <br/>
-    <form class="form-signin" method="post" action="">
-  <img class="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
-  <label for="inputEmail" class="sr-only">用户名</label>
-  <center><input type="text" id="inputEmail" class="form-control" placeholder="用户名" required autofocus style="width: 278px;height: 44px"></center>
-  <label for="inputPassword" class="sr-only">密码</label>
-  <center><input type="password" id="inputPassword" class="form-control" placeholder="密码" required style="width: 278px;height: 44px"></center>
-<br>
-        <br/>
-  <center><button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 278px;height: 44px">登录</button></center>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</form>
+        <center>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 278px;height: 44px">登录</button>
+        </center>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

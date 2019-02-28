@@ -55,11 +55,11 @@
         <a class="{% block 关于高亮 %}nav-link disabled{% endblock 关于高亮 %}" href="{% url 'music:关于'%}" tabindex="-1" aria-disabled="true">关于我</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" method="post" name="updata" action="{% block 按钮url %}{% url 'music:更新数据库'%}{% endblock 按钮url %}">
+    <form class="form-inline my-2 my-lg-0" method="{% block get %}get{% endblock get %}" name="updata" action="{% block 按钮url %}{% url 'music:管理员登录'%}{% endblock 按钮url %}">
         {% csrf_token %}
         {% block 隐藏域 %}{% endblock 隐藏域 %}
 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% block 按钮 %}更新数据库{% endblock 按钮 %}</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% block 按钮 %}管理员登录{% endblock 按钮 %}</button>
     </form>
   </div>
 </nav>

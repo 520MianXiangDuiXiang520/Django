@@ -20,8 +20,9 @@ urlpatterns = [
     path('qtboy/',views.qtboy,name='其他男'),
     path('qtgir/',views.qtgir,name='其他女'),
     path('qtzh/',views.qtzh,name='其他组合'),
-    path('update/',views.fupdate,name='更新数据库'),
+    path('update/',views.auth,name='管理员登录'),
     path('songs/<info_歌手ID>',views.songs,name='歌曲'),
     path('alldownl/',views.alldownl,name='全部下载'),
-    path('更新/', views.updete, name='更新'),
+    path('superuser_page/', views.superuser_page, name='管理员页面'),
+    path('更新/', views.update, name='更新'),
 ]
