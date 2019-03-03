@@ -1,0 +1,16 @@
+{% extends "myblog/base.html"%}
+{% block 标题 %}{{内容.标题}}{% endblock %}
+
+{% block 主题 %}
+<div class="blog-post">
+    <h2 class="blog-post-title">{{内容.标题}}</h2>
+    <p class="blog-post-meta"> {{内容.创建时间}} <a href="#">{{内容.分类.类名}}</a></p>
+
+
+
+        {{正文|safe}}
+
+    <hr>
+
+</div>
+{% endblock 主题 %}

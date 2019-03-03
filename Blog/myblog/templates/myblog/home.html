@@ -1,0 +1,23 @@
+{% extends "myblog/base.html"%}
+{% block 标题 %}主页{% endblock %}
+{% block 主页高亮 %}navbar-brand{% endblock %}
+{% block 主题 %}
+{% for 文章 in 内容 %}
+<div class="blog-post">
+    <h2 class="blog-post-title">{{文章.标题}}</h2>
+    <p class="blog-post-meta"> {{文章.创建时间}} <a href="#">{{文章.分类.类名}}</a></p>
+
+    <p>{{文章.摘要}}</p>
+    <p>
+    <form method="post" name="更多" action="{% url 'myblog:更多' 文章.id %}">
+        {% csrf_token %}
+        <button type="submit" name="more">查看详情...</button>
+    </form>
+    </p>
+    <hr>
+
+</div>
+{% endfor %}
+{% endblock 主题 %}
+
+

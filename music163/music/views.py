@@ -60,7 +60,7 @@ def get_artists(url,flag):
             obj = 韩国男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='其他男歌手':
-            其他男歌手.objects.all().delete()
+
             obj = 其他男歌手(歌手姓名=repr(arts), 歌手ID=ids[0])
             obj.save()
         elif flag=='华语女歌手':
@@ -142,6 +142,7 @@ def update(request):
     日本女歌手.objects.all().delete()
     韩国女歌手.objects.all().delete()
     其他女歌手.objects.all().delete()
+    其他男歌手.objects.all().delete()
     华语男歌手.objects.all().delete()
     欧美男歌手.objects.all().delete()
     其他歌手组合.objects.all().delete()
