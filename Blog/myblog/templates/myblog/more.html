@@ -9,8 +9,43 @@
 
 
         {{正文|safe}}
+    <form action="{% url 'myblog:更多' 内容.id %}" name="评论" method="post">
+        {% csrf_token %}
 
+       <div class="alert alert-primary" role="alert">
+           <p>评论<<</p>
+           <hr />
+           <div class="form-group">
+            <label for="exampleFormControlInput1">评论者:</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="请输入你的姓名" name="评论者" maxlength="20" required="">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">有问题？不妨写下了...</label>
+            <textarea class="form-control" name="评论内容" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" name="评论提交">提交评论</button>
     <hr>
+    </div>
+
+    </form>
+
+<form>
+
+</form>
+
+    <div class="alert alert-secondary" role="alert">
+        {% for i in 评论列表 %}
+            <strong>{{i.评论者}}</strong>
+
+            <hr/>
+            <p> {{i.评论内容|safe}}</p>
+            <p style="font-size: 12px;padding-top:15px;color: #999999;padding-left: 600px;">{{i.评论日期}} {{i.评论时间}}</p>
+            <hr/>
+        {% endfor %}
+    </div>
+
+
+
 
 </div>
 {% endblock 主题 %}

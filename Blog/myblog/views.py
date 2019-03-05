@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
-from .models import 文章分类,文章标签,文章内容
+from django.shortcuts import render,HttpResponseRedirect,reverse
+from .models import 文章分类,文章标签,文章内容,评论
 import markdown
+from .froms import 评论表单
 import time
 # Create your views here.
 
@@ -15,15 +16,35 @@ def 首页(request):
     return render(request,'myblog/home.html',info)
 
 def 更多(request,文章_id):
-    内容=文章内容.objects.get(id=文章_id)
-    内容.正文=markdown.markdown(内容.正文,
+    内容 = 文章内容.objects.get(id=文章_id)
+    内容.正文 = markdown.markdown(内容.正文,
+                              extensions=[
+                                  'markdown.extensions.extra',
+                                  'markdown.extensions.codehilite',
+                                  'markdown.extensions.toc',
+                              ])
+    评论列表 = 评论.objects.filter(对应文章_id=文章_id)
+    for i in 评论列表:
+        i.评论内容= markdown.markdown(i.评论内容,
                                   extensions=[
-                                     'markdown.extensions.extra',
-                                     'markdown.extensions.codehilite',
-                                     'markdown.extensions.toc',
+                                      'markdown.extensions.extra',
+                                      'markdown.extensions.codehilite',
+                                      'markdown.extensions.toc',
                                   ])
-    info={'内容':内容,'正文':内容.正文}
-    return render(request, 'myblog/more.html', info)
+    info = {'内容': 内容, '正文': 内容.正文, '评论列表': 评论列表, '评论': 评论表单}
+
+    if request.method=='POST':
+        form=评论表单(request.POST)
+        if form.is_valid():
+            a=form.save(commit=False)
+            a.对应文章_id=文章_id
+            a.save()
+            #return render(request, 'myblog/more.html', info)
+            return HttpResponseRedirect(reverse('更多', args=(文章_id)))
+    else:
+        return render(request, 'myblog/more.html', info)
+
+
 
 def 关于(request):
     return render(request,'myblog/about.html')

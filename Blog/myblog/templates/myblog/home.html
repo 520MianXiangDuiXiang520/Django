@@ -9,10 +9,11 @@
 
     <p>{{文章.摘要}}</p>
     <p>
-    <form method="post" name="更多" action="{% url 'myblog:更多' 文章.id %}">
-        {% csrf_token %}
-        <button type="submit" name="more">查看详情...</button>
-    </form>
+    <!--<form method="post" name="更多" action="{% url 'myblog:更多' 文章.id %}">-->
+        <!--{% csrf_token %}-->
+        <!--<button type="submit" name="more">查看详情...</button>-->
+    <!--</form>-->
+    <a href="{% url 'myblog:更多' 文章.id %}" name="more">查看详情...</a>
     </p>
     <hr>
 

@@ -27,3 +27,14 @@ class 文章内容(models.Model):
     def __str__(self):
         return self.标题
 
+
+class 评论(models.Model):
+    评论者=models.CharField(max_length=20)
+    评论日期=models.DateField(auto_now_add=True)
+    评论时间=models.TimeField(auto_now_add=True)
+    评论内容=models.TextField()
+    对应文章=models.ForeignKey('myblog.文章内容',on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.评论者
+
