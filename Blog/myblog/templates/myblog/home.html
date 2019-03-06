@@ -5,14 +5,11 @@
 {% for 文章 in 内容 %}
 <div class="blog-post">
     <h2 class="blog-post-title">{{文章.标题}}</h2>
-    <p class="blog-post-meta"> {{文章.创建时间}} <a href="#">{{文章.分类.类名}}</a></p>
+    <p class="blog-post-meta"> {{文章.创建时间}}
+        <a href="{% url 'myblog:分类' 文章.分类.id %}">{{文章.分类.类名}}</a></p>
 
     <p>{{文章.摘要}}</p>
     <p>
-    <!--<form method="post" name="更多" action="{% url 'myblog:更多' 文章.id %}">-->
-        <!--{% csrf_token %}-->
-        <!--<button type="submit" name="more">查看详情...</button>-->
-    <!--</form>-->
     <a href="{% url 'myblog:更多' 文章.id %}" name="more">查看详情...</a>
     </p>
     <hr>

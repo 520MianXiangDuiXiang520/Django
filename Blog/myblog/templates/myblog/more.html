@@ -4,11 +4,17 @@
 {% block 主题 %}
 <div class="blog-post">
     <h2 class="blog-post-title">{{内容.标题}}</h2>
-    <p class="blog-post-meta"> {{内容.创建时间}} <a href="#">{{内容.分类.类名}}</a></p>
-
-
+    <p class="blog-post-meta"> {{内容.创建时间}}
+        {% for s in 标签 %}
+        {{s.标签名}}
+        {% endfor %}
+    </p>
+    <hr />
 
         {{正文|safe}}
+    <br /><br />
+    <center><p>************************************正文已结束************************************</p></center>
+     <br /><br />
     <form action="{% url 'myblog:更多' 内容.id %}" name="评论" method="post">
         {% csrf_token %}
 

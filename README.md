@@ -2,6 +2,8 @@
 ![404](https://github.com/520MianXiangDuiXiang520/Django/blob/master/GIF/ToDoList.gif)
 网易云 音乐批量下载网站最终
 ![404](https://github.com/520MianXiangDuiXiang520/Django/blob/master/GIF/music163.gif)
+个人博客
+![404](https://github.com/520MianXiangDuiXiang520/Django/blob/master/GIF/blog.gif)
 ## 环境
 ### 虚拟环境
 #### 搭建虚拟环境 
