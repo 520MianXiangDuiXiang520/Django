@@ -3,8 +3,8 @@ from .models import 文章分类,文章标签,文章内容,评论
 import markdown
 from .froms import 评论表单
 import time
-# import requests
-# from bs4 import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup
 import re
 from lxml.html import fromstring,tostring
 # Create your views here.
