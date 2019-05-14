@@ -1,0 +1,22 @@
+.anniu{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  text-align:center
+}
+.anniu #yuanjiao button{
+  border-radius:60px;
+  height: 74px;
+  width: 74px;
+  background-color: #8f8f8f;
+  border:none;
+  
+}
+
+.card{
+  margin-top:20px;
+}
+.foot{
+  text-align: center;
+  bottom: 0px;
+}

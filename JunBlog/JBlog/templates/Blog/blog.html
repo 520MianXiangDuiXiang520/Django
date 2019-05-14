@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'JBlog\css\mystyle.css' %}">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'JBlog\css\semantic.min.css' %}">
+    <script src="{% static 'JBlog\js\vue.js' %}"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <body>
+    <div id='index'>
+
+    {% verbatim  %}
+      <!--导航栏-->
+      <div class="daohang">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">JunBlog</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            
+            <li v-for="item in topmeau" class="nav-item active">
+                <a  class="nav-link" href="#">{{item.name}} <span class="sr-only">(current)</span></a>
+            </li>
+            
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
+      <!--按钮-->
+      <div class="anniu">
+        <div class="ui grid">
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">Python</button>
+          </div>
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">Java</button>
+          </div>
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">PHP</button>
+          </div>
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">C++</button>
+          </div>
+        </div>
+      </div>
+      <div class="anniu">
+        <div class="ui grid">
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">Linux</button>
+          </div>
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">TCP/IP</button>
+          </div>
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">网安</button>
+          </div>
+          <div class="four wide column" id="yuanjiao">
+            <button type="button" class="btn btn-primary">笔记</button>
+          </div>
+        </div>
+      </div>
+  <!--文章-->
+      <div class="card">
+        <div class="card-deck">
+          <div class="card">
+            <img src="static\JBlog\image\wengzhang.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="static\JBlog\image\wengzhang.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div class="card">
+          <img src="static\JBlog\image\wengzhang.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+                This card has even longer content than the first to show that equal height action.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!--页脚-->
+      <div class="foot">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2" focusable="false" role="img">
+          </svg>
+          <small class="d-block mb-3 text-muted">© 2017-2018</small>
+          <small class="d-block mb-3 text-muted">{{date}}</small>
+        </div>
+      </div>
+    </div>
+    {% endverbatim  %}
+    
+  </div>
+</body>
+
+<!-- 核心js -->
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+<script src="{% static 'JBlog\js\semanticmin.js' %}"></script>
+<script src="{% static 'JBlog\js\home.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+  integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+
+</html>

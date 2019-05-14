@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f9e0802-f003-43d5-aeb7-91d73fab93d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JunBlog/JBlog/templates/Blog/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blog/Blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/Blog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog/myblog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/myblog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/Blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/Blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/Blog/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/Blog/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blog/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Blog/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/auth/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music163/music/templates/music/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/music163/music/templates/music/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music163/music/templates/music/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/music163/music/templates/music/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music163/music/templates/music/song.html" beforeDir="false" afterPath="$PROJECT_DIR$/music163/music/templates/music/song.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music163/music/templates/music/superuser.html" beforeDir="false" afterPath="$PROJECT_DIR$/music163/music/templates/music/superuser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/music163/music/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/music163/music/urls.py" afterDir="false" />
@@ -40,35 +45,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/music163/music/urls.py">
+        <entry file="file://$PROJECT_DIR$/JunBlog/JunBlog/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="3300">
+              <caret line="110" column="15" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/music163/music/views.py">
+        <entry file="file://$PROJECT_DIR$/JunBlog/JBlog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="380" column="26" lean-forward="true" selection-start-line="380" selection-start-column="26" selection-end-line="380" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#44#0" expanded="true" />
-                <element signature="e#401#3791#0" />
-              </folding>
+            <state relative-caret-position="270">
+              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/music163/music/templates/music/song.html">
+        <entry file="file://$PROJECT_DIR$/JunBlog/JBlog/templates/Blog/blog.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            <state relative-caret-position="30">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -94,7 +92,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/music163" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="db_todolist" />
@@ -104,10 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ToDouList/todolist/static/todolist/css/edit.css" />
-        <option value="$PROJECT_DIR$/ToDouList/todolist/templates/todolist/about.html" />
-        <option value="$PROJECT_DIR$/ToDouList/todolist/urls.py" />
-        <option value="$PROJECT_DIR$/ToDouList/todolist/templates/todolist/edit.html" />
         <option value="$PROJECT_DIR$/ToDouList/todolist/templates/todolist/base.html" />
         <option value="$PROJECT_DIR$/ToDouList/todolist/static/todolist/css/home.css" />
         <option value="$PROJECT_DIR$/ToDouList/todolist/views.py" />
@@ -115,7 +109,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/music163/music163/urls.py" />
         <option value="$PROJECT_DIR$/auth/myauth/templates/myauth/login.html" />
-        <option value="$PROJECT_DIR$/music163/music/templates/music/home.html" />
         <option value="$PROJECT_DIR$/auth/myauth/models.py" />
         <option value="$PROJECT_DIR$/auth/myauth/admin.py" />
         <option value="$PROJECT_DIR$/auth/myauth/from.py" />
@@ -149,18 +142,22 @@
         <option value="$PROJECT_DIR$/Blog/Blog/settings.py" />
         <option value="$PROJECT_DIR$/Blog/myblog/templates/myblog/base.html" />
         <option value="$PROJECT_DIR$/Blog/myblog/views.py" />
-        <option value="$PROJECT_DIR$/music163/music163/settings.py" />
         <option value="$PROJECT_DIR$/music163/music/templates/music/base.html" />
         <option value="$PROJECT_DIR$/music163/music/urls.py" />
         <option value="$PROJECT_DIR$/music163/music/templates/music/superuser.html" />
         <option value="$PROJECT_DIR$/music163/music/views.py" />
         <option value="$PROJECT_DIR$/music163/music/templates/music/song.html" />
+        <option value="$PROJECT_DIR$/music163/music163/settings.py" />
+        <option value="$PROJECT_DIR$/music163/music/templates/music/home.html" />
+        <option value="$PROJECT_DIR$/JunBlog/JunBlog/settings.py" />
+        <option value="$PROJECT_DIR$/JunBlog/JunBlog/urls.py" />
+        <option value="$PROJECT_DIR$/JunBlog/JBlog/views.py" />
+        <option value="$PROJECT_DIR$/JunBlog/JBlog/templates/Blog/blog.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-92" />
-    <option name="y" value="-28" />
+    <option name="x" value="-10" />
     <option name="width" value="980" />
     <option name="height" value="1090" />
   </component>
@@ -182,56 +179,52 @@
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
+              <item name="JBlog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
+              <item name="JBlog" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
+              <item name="JBlog" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
+              <item name="JBlog" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="music" type="462c0819:PsiDirectoryNode" />
+              <item name="Blog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DjangoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoProject" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
-              <item name="music163" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
+              <item name="JunBlog" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -243,20 +236,22 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/PYthon/pythonday" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\testvir\DjangoProject\GIF" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\testvir\DjangoProject\JunBlog\Blog\static" />
+      <recent name="E:\testvir\DjangoProject\JunBlog\Blog\templates\Blog" />
       <recent name="E:\testvir\DjangoProject\Blog\myblog" />
       <recent name="E:\testvir\DjangoProject\ToDouList\todolist\static\todolist" />
       <recent name="E:\testvir\DjangoProject\ToDouList\todolist\templates\todolist" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\testvir\DjangoProject\GIF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -362,7 +357,14 @@
       <workItem from="1553155619015" duration="2407000" />
       <workItem from="1553175496531" duration="5346000" />
       <workItem from="1553263429315" duration="529000" />
-      <workItem from="1553329547595" duration="2494000" />
+      <workItem from="1553329547595" duration="2723000" />
+      <workItem from="1553332440757" duration="17000" />
+      <workItem from="1553347908705" duration="1829000" />
+      <workItem from="1553511387589" duration="120000" />
+      <workItem from="1556677567558" duration="2459000" />
+      <workItem from="1556940372179" duration="13000" />
+      <workItem from="1557204674278" duration="53000" />
+      <workItem from="1557322854725" duration="613000" />
     </task>
     <task id="LOCAL-00001" summary="README">
       <created>1547904419137</created>
@@ -441,21 +443,27 @@
       <option name="project" value="LOCAL" />
       <updated>1552980064883</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Nginx，Gunicorn部署博客到Linux服务器">
+      <created>1553332202469</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1553332202469</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148441000" />
+    <option name="totallyTimeSpent" value="153774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18048128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19451872" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3288948" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32756326" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32756326" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -465,7 +473,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32756326" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -511,25 +519,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Nginx，Gunicorn部署博客到Linux服务器" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/music163/music/templates/music/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/myblog/templates/myblog/flag.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/myblog/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/pinglun/migrations/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Blog/pinglun/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Blog/pinglun/urls.py" />
     <entry file="file://$PROJECT_DIR$/Blog/pinglun/views.py" />
     <entry file="file://$PROJECT_DIR$/Blog/pinglun/models.py" />
@@ -673,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blog/Blog/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="27" column="64" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/music163/music163/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -702,13 +684,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/music163/music/templates/music/auth.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/music163/music163/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="77" selection-start-line="77" selection-end-line="86" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/music163/music/templates/music/superuser.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -780,13 +755,6 @@
     <entry file="file://$PROJECT_DIR$/Blog/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/music163/music/templates/music/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/music163/music/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -801,6 +769,37 @@
     <entry file="file://$PROJECT_DIR$/music163/music/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/music163/music/templates/music/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-588">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music163/music/templates/music/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music163/music/templates/music/song.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/music163/music/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="380" column="26" selection-start-line="380" selection-start-column="26" selection-end-line="380" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/music163/music/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -811,21 +810,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music163/music/views.py">
+    <entry file="file://$PROJECT_DIR$/music163/music163/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="380" column="26" lean-forward="true" selection-start-line="380" selection-start-column="26" selection-end-line="380" selection-end-column="26" />
+        <state relative-caret-position="666">
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blog/Blog/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="117" column="26" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JunBlog/JunBlog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
           <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <element signature="e#401#3791#0" />
+            <element signature="e#631#663#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/music163/music/templates/music/song.html">
+    <entry file="file://$PROJECT_DIR$/JunBlog/JunBlog/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        <state relative-caret-position="3300">
+          <caret line="110" column="15" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JunBlog/JBlog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JunBlog/JBlog/templates/Blog/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
